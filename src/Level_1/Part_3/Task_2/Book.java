@@ -20,29 +20,28 @@ Book: id, Автор, Название, Год издания, Страна, С�
 4 спиок книг выпущенных поздее заданого года;
 5 список магазинов.
  */
-public class Bookstore {
+public class Book {
     int id;
     String author;
     String bookTitle;
-    int publicationDate;
+    int publicationYear;
     String country;
     String specification;
-    int pointOfSale;
+    int stores;
 
-
-    Bookstore(int id, String author, String bookTitle, int publicationDate, String country, String specification, int pointOfSale) {
+    Book(int id, String author, String bookTitle, int publicationYear, String country, String specification, int pointOfSale) {
         this.id = id;
         this.author = author;
         this.bookTitle = bookTitle;
-        this.publicationDate = publicationDate;
+        this.publicationYear = publicationYear;
         this.country = country;
         this.specification = specification;
-        this.pointOfSale = pointOfSale;
+        this.stores = pointOfSale;
     }
 
-    Bookstore() {
+    Book() {
         bookTitle = "pencil";
-        publicationDate = 0;
+        publicationYear = 0;
         specification = "office supplies";
     }
 
@@ -58,8 +57,8 @@ public class Bookstore {
         return bookTitle;
     }
 
-    int getPublicationDate() {
-        return publicationDate;
+    int getPublicationYear() {
+        return publicationYear;
     }
 
     String getCountry() {
@@ -70,42 +69,39 @@ public class Bookstore {
         return specification;
     }
 
-    int getPointOfSale() {
-        return pointOfSale;
+    int getStores() {
+        return stores;
     }
 
-    void showBookstore() {
+    void showDetails() {
         System.out.println("id: " + getId());
         System.out.println("author: " + getAuthor());
         System.out.println("bookTitle: " + getBookTitle());
-        System.out.println("publicationDate: " + getPublicationDate());
+        System.out.println("publicationDate: " + getPublicationYear());
         System.out.println("country: " + getCountry());
         System.out.println("specification: " + getSpecification());
-        System.out.println("pointOfSale: " + getPointOfSale());
+        System.out.println("stores: " + getStores());
     }
 
-    void showAuthor() {
-        if ((this.getAuthor()).equals("Пушкин")) {  //Вопрос 2. Зачем здесь this????
-            showBookstore();                        //Вопрос 3. Как сделать чтобы значение "Пушкин"
-        }                                           //передавалось из Maina??
-    }
-
-    void showSpecification() {
-        if ((getSpecification()).equals("Проза")) {
-            showBookstore();
-
+    void searchByAuthor() {
+        if (author != null || author.equals((getAuthor()))) {
+            showDetails();
         }
     }
 
-    void showPublicationDate() {
-        if (getPublicationDate() > 1900) {
-            showBookstore();
+    void searchBySpecification() {
+        if (specification !=null&&specification.equals((getSpecification()))) {
+            showDetails();
         }
     }
 
-    void showPointOfSale() {
-        System.out.println("PointOfSale: " + getPointOfSale());
-    } //Вопрос 4 .Как сделать чтобы № магазина не повторялся
+    void searchByPublicationYear() {
+        if (publicationYear !=0 && getPublicationYear() > 1900) {
+            showDetails();
+        }
+    }
 
-
+    void showAllStores() {
+        System.out.println("Stores: " + getStores());
+    }
 }
