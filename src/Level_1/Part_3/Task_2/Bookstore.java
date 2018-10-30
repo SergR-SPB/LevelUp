@@ -1,4 +1,5 @@
-package Level_1.Part_3.Tasc_2;
+package Level_1.Part_3.Task_2;
+
 /*Создать класс, который обозначает какую-либо сущность.
 Определить у него несколько конструкторов - конструктор по умолчанию и конструктор со всеми параметрами.
 Определить для него несколько параметров.
@@ -13,10 +14,11 @@ package Level_1.Part_3.Tasc_2;
 Задать критерий выбора данных и вывести эти данные на консоль.
 Book: id, Автор, Название, Год издания, Страна, Спецификация, Магазин.
 Создать массив объектов. Вывести:
-1 список книг одного автора;
-2 списки товаров одной спецификации;
-3 спиок книг выпущенных поздее заданого года;
-4 список магазинов.
+1 Список всех книг
+2 Список книг одного автора;
+3 Списки товаров одной спецификации;
+4 спиок книг выпущенных поздее заданого года;
+5 список магазинов.
  */
 public class Bookstore {
     int id;
@@ -28,56 +30,82 @@ public class Bookstore {
     int pointOfSale;
 
 
-    Bookstore (int id, String author,String bookTitle, int publicationDate, String country, String specification, int pointOfSale){
+    Bookstore(int id, String author, String bookTitle, int publicationDate, String country, String specification, int pointOfSale) {
         this.id = id;
-        this.author =author;
+        this.author = author;
         this.bookTitle = bookTitle;
         this.publicationDate = publicationDate;
-        this.country =country;
+        this.country = country;
         this.specification = specification;
         this.pointOfSale = pointOfSale;
     }
-    Bookstore (){
+
+    Bookstore() {
         bookTitle = "pencil";
         publicationDate = 0;
         specification = "office supplies";
     }
 
-    int Getid(){
+    int getId() {
         return id;
     }
-    String Getauthor(){
+
+    String getAuthor() {
         return author;
     }
-    String GetbookTitle(){
+
+    String getBookTitle() {
         return bookTitle;
     }
-    int GetpublicationDate(){
+
+    int getPublicationDate() {
         return publicationDate;
     }
-    String Getcountry(){
+
+    String getCountry() {
         return country;
     }
-    String Getspecification(){
+
+    String getSpecification() {
         return specification;
     }
-    int GetpointOfSale(){
+
+    int getPointOfSale() {
         return pointOfSale;
     }
 
-    void show (){
-        System.out.println("id: " + Getid () );
-        System.out.println("author: " + Getauthor () );
-        System.out.println("bookTitle: " + GetbookTitle () );
-        System.out.println("publicationDate: " + GetpublicationDate () );
-        System.out.println("country: " + Getcountry () );
-        System.out.println("specification: " + Getspecification () );
-        System.out.println("pointOfSale: " + GetpointOfSale () );
-
-
+    void showBookstore() {
+        System.out.println("id: " + getId());
+        System.out.println("author: " + getAuthor());
+        System.out.println("bookTitle: " + getBookTitle());
+        System.out.println("publicationDate: " + getPublicationDate());
+        System.out.println("country: " + getCountry());
+        System.out.println("specification: " + getSpecification());
+        System.out.println("pointOfSale: " + getPointOfSale());
     }
 
+    void showAuthor() {
+        if ((this.getAuthor()).equals("Пушкин")) {  //Вопрос 2. Зачем здесь this????
+            showBookstore();                        //Вопрос 3. Как сделать чтобы значение "Пушкин"
+        }                                           //передавалось из Maina??
+    }
 
+    void showSpecification() {
+        if ((getSpecification()).equals("Проза")) {
+            showBookstore();
+
+        }
+    }
+
+    void showPublicationDate() {
+        if (getPublicationDate() > 1900) {
+            showBookstore();
+        }
+    }
+
+    void showPointOfSale() {
+        System.out.println("PointOfSale: " + getPointOfSale());
+    } //Вопрос 4 .Как сделать чтобы № магазина не повторялся
 
 
 }
