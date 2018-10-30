@@ -20,32 +20,33 @@ Book: id, Автор, Название, Год издания, Страна, С�
 4 спиок книг выпущенных поздее заданого года;
 5 список магазинов.
  */
-public class Bookstore {
+public class Book {
     int id;
     String author;
     String bookTitle;
-    int publicationDate;
+    int publicationYear;
     String country;
     String specification;
     int pointOfSale;
 
 
-    Bookstore(int id, String author, String bookTitle, int publicationDate, String country, String specification, int pointOfSale) {
+    Book(int id, String author, String bookTitle, int publicationYear, String country, String specification, int pointOfSale) {
         this.id = id;
         this.author = author;
         this.bookTitle = bookTitle;
-        this.publicationDate = publicationDate;
+        this.publicationYear = publicationYear;
         this.country = country;
         this.specification = specification;
         this.pointOfSale = pointOfSale;
     }
 
-    Bookstore() {
+    Book() {
         bookTitle = "pencil";
-        publicationDate = 0;
+        publicationYear = 0;
         specification = "office supplies";
     }
 
+    //геттеры есть. а сеттеры где?
     int getId() {
         return id;
     }
@@ -58,8 +59,8 @@ public class Bookstore {
         return bookTitle;
     }
 
-    int getPublicationDate() {
-        return publicationDate;
+    int getPublicationYear() {
+        return publicationYear;
     }
 
     String getCountry() {
@@ -74,32 +75,48 @@ public class Bookstore {
         return pointOfSale;
     }
 
-    void showBookstore() {
+    void showDetails() {
         System.out.println("id: " + getId());
         System.out.println("author: " + getAuthor());
         System.out.println("bookTitle: " + getBookTitle());
-        System.out.println("publicationDate: " + getPublicationDate());
+        System.out.println("publicationYear: " + getPublicationYear());
         System.out.println("country: " + getCountry());
         System.out.println("specification: " + getSpecification());
         System.out.println("pointOfSale: " + getPointOfSale());
     }
 
+    //судя по названию метода он должен показать автора. Почему он автора сравнивает с "Пушкиным" и в случае успеха выводит всю информацию о книге?
+    //метод делает не то, что от него ожидаешь по названию
     void showAuthor() {
         if ((this.getAuthor()).equals("Пушкин")) {  //Вопрос 2. Зачем здесь this????
-            showBookstore();                        //Вопрос 3. Как сделать чтобы значение "Пушкин"
-        }                                           //передавалось из Maina??
+            /*this указывает что обращение идет к текущему экземпляру класса
+              в данном случае указывать this не обязательно
+              Сравнение с констатой лучше делать указывая константу на первом месте. В данном случае: "Пушкин".equals(getAuthor())
+             */
+            showDetails();                        //Вопрос 3. Как сделать чтобы значение "Пушкин"
+        }                                           //передавалось из Maina?? - необходимо передать параметр в метод (см перегруженную версию этого метода)
     }
 
+    //overload версия
+    //но как указано выше: имя этого метода надо поменять!
+    void showAuthor(String author) {
+        if (author != null && author.equals(getAuthor())) {
+            showDetails();
+        }
+    }
+
+    //аналогично автору. должно просто отображаться, а не сравнивать с чем-т
     void showSpecification() {
         if ((getSpecification()).equals("Проза")) {
-            showBookstore();
+            showDetails();
 
         }
     }
 
+    //тоже, что и ранее...
     void showPublicationDate() {
-        if (getPublicationDate() > 1900) {
-            showBookstore();
+        if (getPublicationYear() > 1900) {
+            showDetails();
         }
     }
 
