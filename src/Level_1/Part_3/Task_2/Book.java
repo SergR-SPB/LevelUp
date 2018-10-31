@@ -77,7 +77,7 @@ public class Book {
         System.out.println("id: " + getId());
         System.out.println("author: " + getAuthor());
         System.out.println("bookTitle: " + getBookTitle());
-        System.out.println("publicationDate: " + getPublicationYear());
+        System.out.println("publicationYear: " + getPublicationYear());
         System.out.println("country: " + getCountry());
         System.out.println("specification: " + getSpecification());
         System.out.println("stores: " + getStores());
