@@ -43,7 +43,8 @@ public class Main {
         int count =0;
         System.out.println("\n Перечень книг:");
         for (int i = 0; i < books.length; i++) {
-            books[i].showDetails();
+            books[i].showDetails() ;
+
             count++;
         }
         System.out.println("Всего найдено: "+count + " книг(-а)");
@@ -53,8 +54,10 @@ public class Main {
         int count =0;
         System.out.println("\n Перечень книг автора: " + author);
         for (int i = 0; i < books.length; i++) {
-            books[i].searchByAuthor();
-            count++;
+            int search = books[i].searchByAuthor(author);
+            if (search !=0) {
+                count++;
+            }
         }
         System.out.println("Всего найдено: "+count + " книг(-а)");
     }
@@ -63,8 +66,10 @@ public class Main {
         int count =0;
         System.out.println("\n=Список книг одной спецификации: " + specification);
         for (int i = 0; i < books.length; i++) {
-            books[i].searchBySpecification();
-            count++;
+            int search = books[i].searchBySpecification(specification);
+            if (search !=0) {
+                count++;
+            }
         }
         System.out.println("Всего найдено: "+count + " книг(-а)");
     }
@@ -73,8 +78,10 @@ public class Main {
         int count =0;
         System.out.println("\n=Список книг выпущенных после даты: " + publicationYear);
         for (int i = 0; i < books.length; i++) {
-            books[i].searchByPublicationYear();
-            count++;
+            int search =  books[i].searchByPublicationYear(publicationYear);
+            if (search !=0) {
+                count++;
+            }
         }
         System.out.println("Всего найдено: "+count + " книг(-а)");
     }

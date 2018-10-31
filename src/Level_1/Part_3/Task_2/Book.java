@@ -83,22 +83,31 @@ public class Book {
         System.out.println("stores: " + getStores());
     }
 
-    void searchByAuthor() {
-        if (author != null || author.equals((getAuthor()))) {
+    int searchByAuthor(String author) {
+        int resultSearch = 0;
+        if (author != null && author.equals((getAuthor()))) {
             showDetails();
+            resultSearch = 1;
         }
+        return resultSearch;
     }
 
-    void searchBySpecification() {
-        if (specification !=null&&specification.equals((getSpecification()))) {
+    int searchBySpecification(String specification) {
+        int resultSearch = 0;
+        if (specification != null && specification.equals((getSpecification()))) {
             showDetails();
+            resultSearch = 1;
         }
+        return resultSearch;
     }
 
-    void searchByPublicationYear() {
-        if (publicationYear !=0 && getPublicationYear() > 1900) {
+    int searchByPublicationYear(int publicationYear) {
+        int resultSearch = 0;
+        if (publicationYear != 0 && getPublicationYear() > 1900) {
             showDetails();
+            resultSearch = 1;
         }
+        return resultSearch;
     }
 
     void showAllStores() {
