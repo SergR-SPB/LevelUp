@@ -1,6 +1,6 @@
 package Level_1.Part_3.Bookstore;
 
-public abstract class StoreBooks {
+public class StoreBooks {
     private int numberOfBooks = -1;
     public AbstractPrintedEdition[] products = new AbstractPrintedEdition[3];
 
