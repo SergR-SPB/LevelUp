@@ -1,5 +1,7 @@
 package Level_1.Part_3.Bookstore;
 
+import java.util.Arrays;
+
 public class StoreBooks {
     private int numberOfBooks = -1;
     public AbstractPrintedEdition[] products = new AbstractPrintedEdition[3];
@@ -62,6 +64,13 @@ public class StoreBooks {
             }
         }
         return result;
+    }
+    public String toString () {
+        return "Store{" +
+                "numberOfBooks=" + (numberOfBooks + 1) +
+                ", products=" + Arrays.toString(products) +
+                '}';
+
     }
 
 
