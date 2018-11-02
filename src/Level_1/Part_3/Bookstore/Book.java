@@ -1,15 +1,15 @@
 package Level_1.Part_3.Bookstore;
 
-public class Book extends AbstractPrintedEdition {
+public abstract class Book extends AbstractPrintedEdition {
 
     private String author;
     private String bookTitle;
     private int publicationYear;
     private String country;
-    private String specification;
 
     public Book(String id) {
         this.id = id;
+
     }
 
     public String getAuthor() {
@@ -44,24 +44,18 @@ public class Book extends AbstractPrintedEdition {
         this.country = country;
     }
 
-    public String getSpecification() {
-        return specification;
-    }
+    public abstract String getSpecification();
 
-    public void setSpecification(String specification) {
-        this.specification = specification;
-    }
     public String toString (){
         return "Book ID № "+id+"[ "+
-                "bookTitle: "+bookTitle+
-                ", author: "+author+
-                ", publicationYear: "+publicationYear+
-                ", country: "+country+
-                ", specification:"+specification+"]";
-
-
-
+                "bookTitle: "+ getBookTitle() +
+                ", author: "+getAuthor()+
+                ", specification: "+getSpecification()+
+                ", publicationYear: "+getPublicationYear()+
+                ", country: "+getCountry()+"]";
     }
+
+
 
 
 
