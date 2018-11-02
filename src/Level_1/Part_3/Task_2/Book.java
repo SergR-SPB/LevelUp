@@ -85,7 +85,7 @@ public class Book {
 
     int searchByAuthor(String author) {
         int resultSearch = 0;
-        if (author != null && author.equals((getAuthor()))) {
+        if (author != null && this.author.equals((getAuthor()))) {//this - 'nj
             showDetails();
             resultSearch = 1;
         }
@@ -114,3 +114,4 @@ public class Book {
         System.out.println("Stores: " + getStores());
     }
 }
+

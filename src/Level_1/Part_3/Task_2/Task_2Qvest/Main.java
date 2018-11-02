@@ -10,7 +10,7 @@ Book: id, Автор, Название, Год издания, Страна, С�
 
 
 public class Main {
-
+    public int resultMetod;
     int count;
 
     public static void main(String[] args) {
@@ -31,15 +31,31 @@ public class Main {
 
     }
 
-    private static void printSearchByAuthor(Book[] books, String author) {
+    /*private static void printSearchByAuthor(Book[] books, String author) {
         int count = 0;
         System.out.println("\n Перечень книг автора: " + author);
         for (int i = 0; i < books.length; i++) {
-            /*if (author != null && author.equals((books[i].getAuthor()))) {
-                System.out.println("\n" + author);
-                books[i].showDetails();*/
-            books[i].searchByAuthor(author);
-            count++;
+         if (searchByAuthor(books [i] , author)) count++;
+        }
+
+public Boolean searchByAuthor(Book[] books, String author) {
+Здесь сравниваем
+return true или false в зависимости от результата
+
+}*/
+
+    static void printSearchByAuthor(Book[] books, String author) {
+        int count = 0;
+
+        int i = 0;
+
+        System.out.println("\n Перечень книг автора: " + author);
+        for (i = 0; i < books.length; i++) {
+            int result = books[i].searchByAuthor(author);
+            //System.out.println("\n result"+result +"\n");
+            //books[i].searchByAuthor(author);
+            if (result!= 0){
+            count++;}
         }
 
         System.out.println("Всего найдено: " + count + " книг(-а)");//Не работает
@@ -56,6 +72,7 @@ class Book {
     String specification;
     int stores;
     int count;
+    int resultMetd;
 
     Book(int id, String author, String bookTitle, int publicationYear, String country, String specification, int pointOfSale) {
         this.id = id;
@@ -71,7 +88,9 @@ class Book {
         return id;
     }
 
-    String getAuthor() {return author;}
+    String getAuthor() {
+        return author;
+    }
 
     String getBookTitle() {
         return bookTitle;
@@ -103,11 +122,22 @@ class Book {
         System.out.println("specification: " + getSpecification());
         System.out.println("stores: " + getStores());
     }
-    public void searchByAuthor(String author) {
+
+    /*public void searchByAuthor(String author) {
 
         if (author != null && author.equals((getAuthor()))) {
             System.out.println("\n" + author);
             showDetails();
         }
+    }*/
+    int searchByAuthor(String author) {
+        int resultMetod = 0;
+        if (author != null && author.equals((getAuthor()))) {
+            System.out.println("\n" + author);
+            showDetails();
+            resultMetod = 1;
+
+        }
+        return resultMetod;
     }
 }
